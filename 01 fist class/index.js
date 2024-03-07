@@ -15,13 +15,26 @@ app.get("/", (req, res) => {
 });
 
 //post req
-app.post("/api/cars",(req,res) => {
-    const{name, brand} =req.body;
+app.post("/api/cars", (req, res) => {
+    const { name, brand } = req.body;
     console.log(name);
     console.log(brand);
 });
 
+// connection with databse
+const mongoose = require("mongoose");
+mongoose.connect("mongodb://localhost:27017/carDB", {
+    // useNewUrlParser: true,
+    // useUnifiedTopology: true
+})
+    .then(() => {
+        console.log("db connection successful");
+    })
+    .catch((error) => {
+        console.log("db connection failed");
+    });
+
 //Active server on port
-app.listen(3000, ()=>{
+app.listen(3000, () => {
     console.log("Server is live on port", 3000)
 });
