@@ -2,6 +2,12 @@
 const express = require("express");
 const app = express();
 
+//used to parse req.body in express -> PUT or POST
+const bodyParser = require("body-parser");
+
+//specifically parse JSON data and add it to the request.body object
+app.use(bodyParser.json());
+
 //Routes
 //get request
 app.get("/", (req, res) => {
