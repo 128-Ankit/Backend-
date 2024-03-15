@@ -1,4 +1,4 @@
-//Initilizing express
+//Initializing express
 const express = require("express");
 const app = express();
 
@@ -21,7 +21,7 @@ app.post("/api/cars", (req, res) => {
     console.log(brand);
 });
 
-// connection with databse
+// connection with database
 const mongoose = require("mongoose");
 mongoose.connect("mongodb://localhost:27017/carDB", {
     // useNewUrlParser: true,
