@@ -2,13 +2,18 @@ const express = require("express");
 const Router = express.Router();
 
 //import Controllers
-const CreateTodo = require("../controllers/Todo-Controller");
+const {CreateTodo,
+    GetAllTodos,
+    GetSingleTodo,
+    UpdateTodo,
+    DeleteTodo
+} = require("../controllers/Todo-Controller");
 
-Router.post("/createTodo", CreateTodo);
-
-Router.use("/", (req, res) => {
-  res.send("this is for testing for createTodo");
-});
 //define API routes
+Router.post("/createTodo", CreateTodo);
+Router.get("/getTodos", GetAllTodos);
+Router.get('/getTodo/:id',GetSingleTodo);
+Router.put('/updateTodo/:id', UpdateTodo);
+Router.delete('/deleteTodo/:id', DeleteTodo);
 
 module.exports = Router;
